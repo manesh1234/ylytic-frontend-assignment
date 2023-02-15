@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto:wght@500&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    text-align: center;
+    width: 100%;
+}
+
+#root * {
+    margin: 10px;
+}
+
+
+table {
+    margin: 10px auto !important;
+    width: calc(100vw - 35vw);
+    border: 2.5px solid rgb(180, 11, 180);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 4px;
+}
+
+thead {
+    height: 30px;
+    font-size: 20px;
+    background-color: #caf0f8;
+}
+
+tr, td {
+    border: 1px solid rgb(212, 150, 36);
+    font-weight: 400;
+    padding: 8px;
+}
+
+.thead {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.thead-arrows {
+    display: flex;
+    align-items: center;
+}
+
+.thead-arrows svg:hover {
+    cursor: pointer;
+    transform: scale(1.4);
+    color: #e63946;
+}
+
+.title {
+    font-size: 2rem;
+    color: #219ebc;
+    margin-top: 20px !important;
+}
+
+.loading {
+    height: 50vh;
+}
+
+.loading>svg {
+    height: 90%;
+}
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title-row-input>input {
+    padding: 3px;
+    padding-left: 8px;
+}
+
+.title-row-input-unselect {
+    position: relative;
+    right: 46px;
+    top: 14px;
+}
+
+.title-row-input-unselect:hover {
+    cursor: pointer;
+}
+
+#dropdown {
+    text-align: center;
+    height: 30px;
+    width: 110px;
+}
+
+.pagination-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pagination {
+    width: 300px;
+    margin-right: calc(10vw) !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid #4388c9;
+    color: #6190bd;
+}
+
+.pagination-nums {
+    width: 270px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    border: 2px solid #4388c9;
+}
+
+.pagination-nums div {
+    margin: 2px !important;
+    min-width: 25px !important;
+}
+
+.pagination>:first-child {
+    margin: 0 !important;
+    margin-left: 7px !important;
+    margin-right: 2px !important;
+    min-height: 40px;
+    min-width: 40px;
+    padding-top: 10px;
+}
+
+.pagination>:last-child {
+    margin: 0 !important;
+    margin-left: 2px !important;
+    margin-right: 7px !important;
+    min-height: 40px;
+    min-width: 40px;
+    padding-top: 10px;
+}
+
+.pagination>:first-child:hover {
+    background-color: #ffb4a2;
+}
+
+.pagination>:last-child:hover {
+    background-color: #ffb4a2;
+}
+
+.pagination-nums div:hover {
+    background-color: #ffb4a2;
+}
+
+.pagination div:hover {
+    cursor: pointer;
+}
+
+.footer {
+    justify-content: flex-start;
+    margin-left: 10vw !important;
+}
+
+/* start of media queries for mobile view */
+@media screen and (max-width:520px) {
+    .table-div {
+        width: 90vw;
+        overflow-x: scroll;
+    }
+
+    .title-row {
+        flex-direction: column;
+    }
+
+    .pagination {
+        margin: 25px;
+    }
+
+}
+
+/* end of media queries for mobile view */
