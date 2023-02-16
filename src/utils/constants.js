@@ -16,8 +16,8 @@ export const timeSortHandler = (data, condition) => {
 
 export const textSortHandler = (data, condition, selection) => {
     return data.sort((a, b) => {
-        let a1,b1;
-        if(selection==='author'){
+        let a1, b1;
+        if (selection === 'author') {
             a1 = a.author; b1 = b.author;
         }
         else {
@@ -42,3 +42,18 @@ export const textSortHandler = (data, condition, selection) => {
     })
 }
 
+export const numSortHandler = (data, condition, selection) => {
+    return data.sort((a, b) => {
+        let a1, b1;
+        if (selection === 'like') {
+            a1 = a.like;
+            b1 = b.like;
+        }
+        else {
+            a1 = a.reply;
+            b1 = b.reply;
+        }
+        if (condition === 'ascen') return a1 - b1;
+        return b1 - a1;
+    })
+}

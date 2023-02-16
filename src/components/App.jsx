@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API, filterData, timeSortHandler, textSortHandler } from "../utils/constants";
+import { API, filterData, timeSortHandler, textSortHandler, numSortHandler } from "../utils/constants";
 import { Dna } from "react-loader-spinner";
 import { RxCross1 } from 'react-icons/rx';
 import { MdArrowUpward, MdArrowDownward } from 'react-icons/md';
@@ -17,6 +17,10 @@ const App = () => {
     const [atSortDescending, setAtSortDescending] = useState(false);
     const [authorAscending, setAuthorAscending] = useState(false);
     const [authorDescending, setAuthorDescending] = useState(false);
+    const [likeAscending, setLikeAscending] = useState(false);
+    const [likeDescending, setLikeDescending] = useState(false);
+    const [replyAscending, setReplyAscending] = useState(false);
+    const [replyDescending, setReplyDescending] = useState(false);
     const [textAscending, setTextAscending] = useState(false);
     const [textDescending, setTextDescending] = useState(false);
 
@@ -135,8 +139,52 @@ const App = () => {
                                             }
                                         </div>
                                     </div></td>
-                                    <td>Like</td>
-                                    <td>Reply</td>
+                                    <td><div className="thead">
+                                        Like
+                                        <div className="thead-arrows">
+                                            {
+                                                !likeDescending ? <MdArrowUpward onClick={() => {
+                                                    const data = numSortHandler(filteredComments, "des", "like");
+                                                    setFilteredComments(data);
+                                                    setLocalFiltered(data.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
+                                                    setLikeDescending(true);
+                                                    setLikeAscending(false);
+                                                }} /> : ''
+                                            }
+                                            {
+                                                !likeAscending ? <MdArrowDownward onClick={() => {
+                                                    const data = numSortHandler(filteredComments, "ascen", "like");
+                                                    setFilteredComments(data);
+                                                    setLocalFiltered(data.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
+                                                    setLikeAscending(true);
+                                                    setLikeDescending(false);
+                                                }} /> : ''
+                                            }
+                                        </div>
+                                    </div></td>
+                                    <td><div className="thead">
+                                        Reply
+                                        <div className="thead-arrows">
+                                            {
+                                                !replyDescending ? <MdArrowUpward onClick={() => {
+                                                    const data = numSortHandler(filteredComments, "des", "reply");
+                                                    setFilteredComments(data);
+                                                    setLocalFiltered(data.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
+                                                    setReplyDescending(true);
+                                                    setReplyAscending(false);
+                                                }} /> : ''
+                                            }
+                                            {
+                                                !replyAscending ? <MdArrowDownward onClick={() => {
+                                                    const data = numSortHandler(filteredComments, "ascen", "reply");
+                                                    setFilteredComments(data);
+                                                    setLocalFiltered(data.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
+                                                    setReplyAscending(true);
+                                                    setReplyDescending(false);
+                                                }} /> : ''
+                                            }
+                                        </div>
+                                    </div></td>
                                     <td><div className="thead">
                                         text
                                         <div className="thead-arrows">
