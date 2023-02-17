@@ -39,7 +39,7 @@ const App = () => {
 
     const onClickHandler = (pageChange) => {
         setPageIndex(pageChange);
-        setLocalFiltered(filteredComments.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex));
+        setLocalFiltered(filteredComments.slice(dropdownValue * pageChange - dropdownValue, dropdownValue * pageChange));
     }
 
 
