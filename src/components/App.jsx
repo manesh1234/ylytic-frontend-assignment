@@ -23,7 +23,8 @@ const App = () => {
     const [replyDescending, setReplyDescending] = useState(false);
     const [textAscending, setTextAscending] = useState(false);
     const [textDescending, setTextDescending] = useState(false);
-
+    const [con, setCon] = useState('');
+    const [col, setCol] = useState('');
 
     useEffect(() => {
         fetchData();
@@ -42,6 +43,21 @@ const App = () => {
         setLocalFiltered(filteredComments.slice(dropdownValue * pageChange - dropdownValue, dropdownValue * pageChange));
     }
 
+    const sortHandler = (condition, colName) => {
+        setCol(colName);
+        if (colName === col) {
+            setCon(condition === 'asc' ? 'des' : 'asc');
+        }
+        else {
+            setCon(condition);
+            setLocalFiltered(filteredComments.sort((a, b) => {
+                if (colName === 'at') {
+                    return new Date(a[colName]) - new Date(b[colName]);
+                }
+                return a[colName] - b[colName];
+            }).slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
+        }
+    }
 
     return (
         <>
@@ -95,24 +111,12 @@ const App = () => {
                                 <tr>
                                     <td><div className="thead">
                                         At
-                                        <div className="thead-arrows">
+                                        <div className="thead-arrows" >
                                             {
-                                                !atSortDescending ? <MdArrowUpward onClick={() => {
-                                                    const data = timeSortHandler(filteredComments, "des");
-                                                    setFilteredComments(data);
-                                                    setLocalFiltered(data.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
-                                                    setAtSortDescending(true);
-                                                    setAtSortAscending(false);
-                                                }} /> : ''
+                                                !con && <MdArrowUpward onClick={() => sortHandler("asc", "at")} />
                                             }
                                             {
-                                                !atSortAscending ? <MdArrowDownward onClick={() => {
-                                                    const data = timeSortHandler(filteredComments, "ascen");
-                                                    setFilteredComments(data);
-                                                    setLocalFiltered(data.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex))
-                                                    setAtSortAscending(true);
-                                                    setAtSortDescending(false);
-                                                }} /> : ''
+                                                !atSortAscending && <MdArrowDownward onClick={() => sortHandler("des", "at")} />
                                             }
                                         </div>
                                     </div></td>
