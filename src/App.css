@@ -11,14 +11,18 @@
     width: 100%;
 }
 
-#root * {
-    margin: 10px;
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: calc(100vw - 30vw);
+    margin: auto;
 }
 
-
 table {
-    margin: 10px auto !important;
-    width: calc(100vw - 35vw);
+    margin-top: 10px;
     border: 2.5px solid rgb(180, 11, 180);
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -69,9 +73,11 @@ tr, td {
 }
 
 .title-row {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .title-row-input>input {
@@ -81,8 +87,8 @@ tr, td {
 
 .title-row-input-unselect {
     position: relative;
-    right: 46px;
-    top: 14px;
+    right: 24px;
+    top: 4px;
 }
 
 .title-row-input-unselect:hover {
@@ -96,6 +102,7 @@ tr, td {
 }
 
 .pagination-div {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -103,7 +110,6 @@ tr, td {
 
 .pagination {
     width: 300px;
-    margin-right: calc(10vw) !important;
     text-align: center;
     display: flex;
     align-items: center;
@@ -161,7 +167,6 @@ tr, td {
 
 .footer {
     justify-content: flex-start;
-    margin-left: 10vw !important;
 }
 
 /* start of media queries for mobile view */
