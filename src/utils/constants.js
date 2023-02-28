@@ -1,4 +1,3 @@
-
 export const API = 'https://dev.ylytic.com/ylytic/test';
 
 export const filterData = (text, allData) => {

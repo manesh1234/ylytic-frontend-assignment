@@ -47,6 +47,7 @@ const App = () => {
         <>
             <h1 className="title">Ylytic FrontEnd assignment</h1>
             <p><a href={API} target="_blank" rel="noreferrer">source</a></p>
+            <h5>{allComments ? allComments.length + ' records' : ''}</h5>
             <div className="title-row">
                 <div className="title-row-input">
                     <input type="text" placeholder="Filter" value={text} onChange={e => {
@@ -65,7 +66,6 @@ const App = () => {
                         setLocalFiltered(allComments.slice(dropdownValue * pageIndex - dropdownValue, dropdownValue * pageIndex));
                     }} />
                 </div>
-                <h5>{allComments ? allComments.length + ' records' : ''}</h5>
                 <select name="dropdown" id="dropdown" value={dropdownValue} onChange={e => {
                     setDropdownValue(e.target.value);
                     setLocalFiltered(filteredComments.slice(e.target.value * pageIndex - e.target.value, e.target.value * pageIndex));
@@ -77,7 +77,7 @@ const App = () => {
             </div>
             <div className="pagination-div">
                 {
-                    <Pagination pageSize={dropdownValue} totalData={!filteredComments ? 0 : filteredComments.length} clickHandler={onClickHandler} />
+                    filteredComments && filteredComments.length > 0 && <Pagination pageSize={dropdownValue} totalData={filteredComments.length} clickHandler={onClickHandler} />
                 }
             </div>
             <div className="table-div">
@@ -230,7 +230,7 @@ const App = () => {
             </div>
             <div className="pagination-div footer">
                 {
-                    <Pagination pageSize={dropdownValue} totalData={!filteredComments ? 0 : filteredComments.length} clickHandler={onClickHandler} />
+                    filteredComments && filteredComments.length > 0 && <Pagination pageSize={dropdownValue} totalData={filteredComments.length} clickHandler={onClickHandler} />
                 }
             </div>
         </>

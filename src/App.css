@@ -4,26 +4,59 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #root {
-    text-align: center;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: calc(100vw - 30vw);
+    margin: auto;
 }
-
-#root * {
-    margin: 10px;
-}
-
 
 table {
-    margin: 10px auto !important;
-    width: calc(100vw - 35vw);
+    margin-top: 10px;
     border: 2.5px solid rgb(180, 11, 180);
     text-align: center;
     font-family: 'Roboto', sans-serif;
     padding: 4px;
 }
+
+select {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    padding-right: 4px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #0070f3;
+    box-shadow: 0 0 0 2px #90cdf4;
+}
+
+option {
+    color: #333;
+    background-color: #fff;
+}
+
+option:hover,
+option:focus {
+    background-color: #0070f3;
+    color: #fff;
+}
+
+input[type="text"] {
+    font-size: 16px;
+    font-weight: bold;
+}
+  
 
 thead {
     height: 30px;
@@ -69,9 +102,11 @@ tr, td {
 }
 
 .title-row {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .title-row-input>input {
@@ -81,8 +116,8 @@ tr, td {
 
 .title-row-input-unselect {
     position: relative;
-    right: 46px;
-    top: 14px;
+    right: 24px;
+    top: 4px;
 }
 
 .title-row-input-unselect:hover {
@@ -91,11 +126,12 @@ tr, td {
 
 #dropdown {
     text-align: center;
-    height: 30px;
-    width: 110px;
+    height: 40px;
+    width: 180px;
 }
 
 .pagination-div {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -103,7 +139,6 @@ tr, td {
 
 .pagination {
     width: 300px;
-    margin-right: calc(10vw) !important;
     text-align: center;
     display: flex;
     align-items: center;
@@ -161,7 +196,6 @@ tr, td {
 
 .footer {
     justify-content: flex-start;
-    margin-left: 10vw !important;
 }
 
 /* start of media queries for mobile view */
@@ -172,11 +206,22 @@ tr, td {
     }
 
     .title-row {
+        margin: 3px;
         flex-direction: column;
+        height: 100px;
+    }
+
+    #dropdown {
+        margin-right: 13px;
+    }
+
+    .pagination-div {
+        width: 90%;
+        justify-content: center;
     }
 
     .pagination {
-        margin: 25px;
+        margin: 10px;
     }
 
 }
