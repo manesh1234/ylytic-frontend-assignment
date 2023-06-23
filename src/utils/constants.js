@@ -1,4 +1,4 @@
-export const API = 'https://dev.ylytic.com/ylytic/test';
+export const API = 'https://mocki.io/v1/47027291-03db-410d-828b-04f7a4d393bb';
 
 export const filterData = (text, allData) => {
     return allData.filter((item) => {
